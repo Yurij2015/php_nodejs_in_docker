@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  app:
+    build:
+      context: "./nodejs/"
+    volumes:
+      - ${PROJECT_NODE}/:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+  php:
+    build:
+      context: "./php/"
+    ports:
+      - "8888:80"
+    volumes:
+      - ${PROJECT_ROOT}/:/var/www/html/
+
+
